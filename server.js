@@ -1,8 +1,8 @@
 const cookieParser = require("cookie-parser");
 const express = require("express");
-
 require("dotenv").config();
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 //regular middleware
 app.use(express.json());
@@ -17,10 +17,6 @@ const postRouter = require("./Routes/postRoutes");
 app.use("/api", userRouter);
 app.use("/api", postRouter);
 
-app.get("/", (req, res) => {
-  res.send("Hi from youtube live");
-});
-
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("server is running on port 3000");
 });
